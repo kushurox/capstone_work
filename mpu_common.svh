@@ -11,8 +11,8 @@ localparam BLOCK_COUNT = (SHARED_MEM_SIZE / BLOCK_SIZE); // number of blocks in 
 localparam BLOCK_COUNT_BITS = $clog2(SHARED_MEM_SIZE / BLOCK_SIZE); // bits required to represent block count
 localparam REGION_SHIFT = $clog2(BLOCK_SIZE); // bits to shift address to get block number
 
-typedef enum logic [2:0] { IDLE, CONFIGURE, CHECK_ACCESS, RESERVE, FREE } state_t;
-typedef enum logic [2:0] { NO_ERROR, ACCESS_GRANTED, ACCESS_DENIED } error_t;
+typedef enum logic [2:0] { MPU_NO_ERROR, MPU_ACCESS_GRANTED, MPU_ACCESS_DENIED } mpu_error_t;
+typedef enum logic [1:0] {MALLOC, DEALLOC, CHECK} act_op_t;
 
 typedef union packed {
     logic [ADDR_WIDTH-1:0] addr;
@@ -49,5 +49,17 @@ typedef enum logic [2:0] {
                             MALLOC_FOUND, MALLOC_RESULT, MALLOC_RESERVATION_ID0, 
                             MALLOC_RESERVATION_ID1, MALLOC_LOAD_E 
                         } malloc_state_t;
+
+typedef enum logic {
+    ACCESS_DENIED,
+    ACCESS_GRANTED
+} access_check_result_t;
+
+typedef enum logic [1:0] {
+    ACCESS_CHECK_IDLE,
+    ACCESS_CHECK_READ,
+    W,  // wait state for act to read data
+    ACCESS_CHECK_RESULT
+} access_check_state_t;
 
 `endif // MPU_H

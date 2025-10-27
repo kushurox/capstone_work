@@ -2,6 +2,7 @@
 
 typedef enum logic {ACT_RESET, ACT_OP} act_state_t;
 
+
 // module for access control table memory
 // contains BLOCK_COUNT entries of type entry_t
 // will never be accessed by multiple modules at the same time
@@ -11,15 +12,17 @@ module act_mem(
     input logic clk,
     input logic rst_n,
     input logic cs, // chip select
-    input logic malloc_dealloc, // 0 for malloc, 1 for dealloc
+    input act_op_t malloc_dealloc, // 0 for malloc, 1 for dealloc, 2 for check_access
     input logic malloc_we,
     input entry_t malloc_wdata,
     input logic [BLOCK_COUNT_BITS-1:0] malloc_addr,
     input logic dealloc_we,
     input entry_t dealloc_wdata,
     input logic [BLOCK_COUNT_BITS-1:0] dealloc_addr,
+    input logic [BLOCK_COUNT_BITS-1:0] check_addr, // read only for check_access
     output entry_t malloc_rdata,
     output entry_t dealloc_rdata,
+    output entry_t check_rdata,
     output logic bsy
 );
 
@@ -45,7 +48,7 @@ module act_mem(
             end
             else begin
                 if(cs) begin
-                    if(!malloc_dealloc) begin // malloc chosen
+                    if(malloc_dealloc == MALLOC) begin // malloc chosen
                         if(malloc_we) begin
                             act_mem[malloc_addr] <= malloc_wdata;
                         end
@@ -53,10 +56,14 @@ module act_mem(
                             malloc_rdata <= act_mem[malloc_addr];
                         end
                     end
-                    else begin
+                    else if(malloc_dealloc == DEALLOC) begin
                         // dealloc chosen
                         if(dealloc_we) act_mem[dealloc_addr] <= dealloc_wdata;
                         else dealloc_rdata <= act_mem[dealloc_addr];
+                    end
+                    else begin
+                        // check_access chosen
+                        check_rdata <= act_mem[check_addr];
                     end
                 end
             end

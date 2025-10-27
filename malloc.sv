@@ -39,7 +39,7 @@ module malloc(
     logic [BLOCK_COUNT_BITS:0] left; // index to search for free blocks. keeping it BLOCK_COUNT_BITS+1 to avoid overflow
     logic [BLOCK_COUNT_BITS:0] right; // count of contiguous free blocks found
 
-    always_ff @( posedge clk or negedge rst_n ) begin
+    always_ff @( posedge clk ) begin
         if(!rst_n) begin
             $display("MALLOC_RESET");
             current_state <= MALLOC_IDLE;
@@ -67,7 +67,6 @@ module malloc(
                         write_mask_reg <= write_mask;
                         left <= '0;
                         right <= '0;
-                        rdy <= 1'b0;
                         bsy <= 1'b1;
                         err <= MALLOC_NO_ERROR;
                         current_state <= MALLOC_LOAD_E;
@@ -85,7 +84,6 @@ module malloc(
                         $display("MALLOC_SEARCH_LEFT: left == BLOCK_COUNT");
                         err <= OUT_OF_MEMORY;
                         rdy <= 1'b1;
-                        bsy <= 1'b1;
                         current_state <= MALLOC_RESULT;
                     end 
                     else begin
@@ -109,7 +107,6 @@ module malloc(
                         $display("MALLOC_SEARCH_RIGHT: right == BLOCK_COUNT");
                         err <= OUT_OF_MEMORY;
                         rdy <= 1'b1;
-                        bsy <= 1'b1;
                         current_state <= MALLOC_RESULT;
                     end
                     else begin
@@ -150,7 +147,6 @@ module malloc(
                         act_we <= 1'b0;
                         act_cs <= 1'b0;
                         base_addr <= (ADDR_WIDTH'(right[BLOCK_COUNT_BITS-1:0] - num_blocks_reg) + 1) << REGION_SHIFT;
-                        bsy <= 1'b1;
                         rdy <= 1'b1;
                     end
                     else begin

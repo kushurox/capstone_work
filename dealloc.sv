@@ -47,7 +47,7 @@ module dealloc(
             err <= DEALLOC_NO_ERROR;
             reservation_id_out <= '0;
             reservation_enqueue <= 1'b0;
-            rdy <= 1'b1;
+            rdy <= 1'b0;
             from <= '0;
         end
         else begin
@@ -56,7 +56,6 @@ module dealloc(
                     if(cs) begin
                         $display("DEALLOC: Deallocation started for core id %0d at address %0h", core_id, addr);
                         bsy <= 1'b1;
-                        rdy <= 1'b0;
                         act_addr <= BLOCK_COUNT_BITS'(addr >> REGION_SHIFT);
                         block_index <= BLOCK_COUNT_BITS'(addr >> REGION_SHIFT);
                         act_cs <= 1'b1;
@@ -78,6 +77,7 @@ module dealloc(
                     if(act_rdata.owner != core_id_reg) begin
                         $display("DEALLOC: Owner core id mismatch. Deallocation complete.");
                         current_state <= DEALLOC_RESULT;
+                        rdy <= 1'b1;
                         err <= DEALLOC_INVALID_ADDR;
                         act_cs <= 1'b0;
                         act_we <= 1'b0;
@@ -102,6 +102,7 @@ module dealloc(
                 WE: begin
                     if(act_rdata.reservation_id != reservation_id || !act_rdata.valid) begin
                         $display("DEALLOC: Reservation id mismatch. Deallocation complete.");
+                        rdy <= 1'b1;
                         current_state <= DEALLOC_RESULT;
                         act_cs <= 1'b0;
                         act_we <= 1'b0;
@@ -120,7 +121,7 @@ module dealloc(
                 end
                 DEALLOC_RESULT: begin
                     bsy <= 1'b0;
-                    rdy <= 1'b1;
+                    rdy <= 1'b0;
                     current_state <= DEALLOC_IDLE;
                     reservation_id_out <= '0;
                     reservation_enqueue <= 1'b0;

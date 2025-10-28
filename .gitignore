@@ -4,3 +4,4 @@ json/
 sim/
 *.vcd
 *.json
+obj_dir/

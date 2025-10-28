@@ -24,7 +24,7 @@ module access_check(
         if(!rst_n) begin
             current_state <= ACCESS_CHECK_IDLE;
             bsy <= 1'b0;
-            rdy <= 1'b1;
+            rdy <= 1'b0;
             result <= ACCESS_DENIED;
             act_cs <= 1'b0;
             act_addr <= '0;
@@ -44,6 +44,8 @@ module access_check(
                     current_state <= ACCESS_CHECK_READ;
                 end
                 ACCESS_CHECK_READ: begin
+                    $display("ACCESS_CHECK_READ: core_id=%0d, addr=%0h, we=%0b, act_rdata=%0d", core_id, addr, we, act_rdata);
+                    $display("ACCESS_CHECK_READ: act_rdata.valid=%0b, act_rdata.read_mask=0x%0h, act_rdata.write_mask=0x%0h", act_rdata.valid, act_rdata.read_mask, act_rdata.write_mask);
                     result <= (we ?
                                 (act_rdata.write_mask[core_id] ? ACCESS_GRANTED : ACCESS_DENIED) :
                                 (act_rdata.read_mask[core_id] ? ACCESS_GRANTED : ACCESS_DENIED)
@@ -52,6 +54,7 @@ module access_check(
                     current_state <= ACCESS_CHECK_RESULT;
                 end
                 ACCESS_CHECK_RESULT: begin
+                    $display("ACCESS_CHECK_RESULT: core_id=%0d, addr=%0h, we=%0b, result=%0b, time=%0t", core_id, addr, we, result, $time);
                     bsy <= 1'b0;
                     rdy <= 1'b0;
                     current_state <= ACCESS_CHECK_IDLE;

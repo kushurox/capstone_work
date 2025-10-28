@@ -6,13 +6,14 @@
 
 typedef enum logic [2:0] {
     MPU_IDLE,
+    MPU_RESET,
     MPU_MALLOC,
     MPU_DEALLOC,
     MPU_ACCESS_CHECK,
     MPU_RESULT
 } mpu_state_t;
 
-module MPU(
+module mpu(
     input logic clk,
     input logic rst_n,
     input logic cs,
@@ -25,7 +26,7 @@ module MPU(
     output logic rdy,
     output logic bsy,
     output logic [DATA_WIDTH-1:0] rdata,
-    output mpu_error_t error
+    output mpu_error_t err
 );
 
     logic malloc_cs, dealloc_cs, check_cs;  // chip select signals to malloc, dealloc, check units
@@ -70,19 +71,30 @@ module MPU(
 
     always_ff @(posedge clk) begin
         if(!rst_n) begin
-            current_state <= MPU_IDLE;
+            current_state <= MPU_RESET;
             rdy <= 1'b0;
-            bsy <= 1'b0;
+            bsy <= 1'b1; // have to wait for act_mem to be ready
             rdata <= '0;
-            error <= MPU_NO_ERROR;
+            err <= MPU_NO_ERROR;
             malloc_cs <= 1'b0;
             dealloc_cs <= 1'b0;
             check_cs <= 1'b0;
         end
         else begin
             case(current_state)
+                MPU_RESET: begin
+                    if(!act_bsy) begin
+                        current_state <= MPU_IDLE;
+                        bsy <= 1'b0;
+                        // $display("MPU: Reset complete, entering IDLE state, cycle=%0t", $time);
+                    end
+                    else begin
+                        current_state <= MPU_RESET; // wait for act memory to be ready
+                    end
+                end
                 MPU_IDLE: begin
                     if(cs) begin: mpu_idle_transition
+                        $display("MPU: Received new request: core_id=%0d, addr=%0h, wdata=%0h, free_reserve=%0b. cfg=%0b, we=%0b", core_id, addr, wdata, free_reserve, cfg, we);
                         bsy <= 1'b1;
                         core_id_reg <= core_id;
                         addr_reg <= addr;
@@ -90,7 +102,7 @@ module MPU(
                         free_reserve_reg <= free_reserve;
                         we_reg <= we;
                         if(cfg) begin
-                            if(free_reserve) begin
+                            if(addr.bits.fr) begin
                                 malloc_cs <= 1'b1;
                                 current_state <= MPU_MALLOC;
                             end
@@ -100,6 +112,7 @@ module MPU(
                             end
                         end
                         else begin
+                            $display("MPU: Starting access check for core_id=%0d, addr=%0h, we=%0b", core_id, addr, we);
                             check_cs <= 1'b1;
                             current_state <= MPU_ACCESS_CHECK;
                         end
@@ -108,13 +121,14 @@ module MPU(
                 MPU_MALLOC: begin
                     malloc_cs <= '0;
                     if(malloc_rdy) begin
+                        $display("MPU_MALLOC: malloc_base_addr=%0h, malloc_err=%0b", malloc_base_addr, malloc_err);
                         if(malloc_err == MALLOC_NO_ERROR) begin
                             rdata <= malloc_base_addr;
-                            error <= MPU_NO_ERROR;
+                            err <= MPU_NO_ERROR;
                         end
                         else begin
                             rdata <= '0;
-                            error <= MPU_ACCESS_DENIED;
+                            err <= MPU_ACCESS_DENIED;
                         end
                         current_state <= MPU_RESULT;
                         rdy <= 1'b1;
@@ -128,11 +142,11 @@ module MPU(
                     if(dealloc_rdy) begin
                         if(dealloc_err == DEALLOC_NO_ERROR) begin
                             rdata <= '0;
-                            error <= MPU_NO_ERROR;
+                            err <= MPU_NO_ERROR;
                         end
                         else begin
                             rdata <= '0;
-                            error <= MPU_ACCESS_DENIED;
+                            err <= MPU_ACCESS_DENIED;
                         end
                         current_state <= MPU_RESULT;
                         rdy <= 1'b1;
@@ -144,18 +158,22 @@ module MPU(
                 MPU_ACCESS_CHECK: begin
                     check_cs <= '0;
                     if(check_rdy) begin
+                        $display("MPU_ACCESS_CHECK: access check for core_id=%0d, addr=%0h, we=%0b, time=%0t", core_id_reg, addr_reg, we_reg, $time);
                         if(access_check_result == ACCESS_GRANTED) begin
+                            $display("MPU_ACCESS_CHECK: access granted for core_id=%0d, addr=%0h, we=%0b", core_id_reg, addr_reg, we_reg);
                             if(we_reg) begin
                                 memory[addr_reg] <= wdata_reg;
                             end
                             else begin
                                 rdata <= memory[addr_reg];
+                                $display("MPU_ACCESS_CHECK: read data=0x%0h from addr=%0h", memory[addr_reg], addr_reg);
                             end
-                            error <= MPU_ACCESS_GRANTED;
+                            err <= MPU_ACCESS_GRANTED;
                         end
                         else begin
+                            $display("MPU_ACCESS_CHECK: access denied for core_id=%0d, addr=%0h, we=%0b", core_id_reg, addr_reg, we_reg);
                             rdata <= '0;
-                            error <= MPU_ACCESS_DENIED;
+                            err <= MPU_ACCESS_DENIED;
                         end
                         current_state <= MPU_RESULT;
                         rdy <= 1'b1;
@@ -165,6 +183,7 @@ module MPU(
                     end
                 end
                 MPU_RESULT: begin
+
                     rdy <= 1'b0;
                     bsy <= 1'b0;
                     current_state <= MPU_IDLE;

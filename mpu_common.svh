@@ -62,4 +62,13 @@ typedef enum logic [1:0] {
     ACCESS_CHECK_RESULT
 } access_check_state_t;
 
+typedef struct packed {
+    logic [2:0]            opcode;
+    logic [2:0]            param;
+    logic [31:0]           address;
+    logic [31:0]           data;
+    logic [3:0]            source;
+    logic                  valid;
+    logic                  ready;
+} tl_a_channel;
 `endif // MPU_H

@@ -159,6 +159,7 @@ module malloc(
                 end
                 MALLOC_RESULT: begin
                     // hold state for one cycle to output results
+                    $display("MALLOC_RESULT: base_addr=%0h, err=%0b", base_addr, err);
                     current_state <= MALLOC_IDLE;
                     rdy <= 1'b0;
                     bsy <= 1'b0;

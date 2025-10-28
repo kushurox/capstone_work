@@ -71,4 +71,13 @@ typedef struct packed {
     logic                  valid;
     logic                  ready;
 } tl_a_channel;
+
+typedef struct packed {
+    logic [2:0]  opcode;
+    logic [31:0] address;
+    logic [31:0] data;
+    logic [3:0]  source;
+    logic        valid;
+    logic        ready;
+} tl_d_channel;
 `endif // MPU_H

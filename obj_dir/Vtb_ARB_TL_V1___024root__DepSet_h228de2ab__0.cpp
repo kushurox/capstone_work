@@ -20,19 +20,20 @@ void Vtb_ARB_TL_V1___024root___eval_triggers__act(Vtb_ARB_TL_V1___024root* vlSel
     vlSelfRef.__VactTriggered.setBit(1U, ((~ (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__rst_n)) 
                                           & (IData)(vlSelfRef.__Vtrigprevexpr___TOP__tb_ARB_TL_V1__DOT__rst_n__0)));
     vlSelfRef.__VactTriggered.setBit(2U, vlSelfRef.__VdlySched.awaitingCurrentTime());
-    vlSelfRef.__VactTriggered.setBit(3U, ((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack)) 
-                                          != (IData)(vlSelfRef.__Vtrigprevexpr_h60381e42__0)));
-    vlSelfRef.__VactTriggered.setBit(4U, ((1U & ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack) 
+    vlSelfRef.__VactTriggered.setBit(3U, ((1U & ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack) 
                                                  >> 1U)) 
                                           != (IData)(vlSelfRef.__Vtrigprevexpr_h603e4c74__0)));
+    vlSelfRef.__VactTriggered.setBit(4U, ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__d_valid) 
+                                          != (IData)(vlSelfRef.__Vtrigprevexpr___TOP__tb_ARB_TL_V1__DOT__d_valid__0)));
     vlSelfRef.__Vtrigprevexpr___TOP__tb_ARB_TL_V1__DOT__clk__0 
         = vlSelfRef.tb_ARB_TL_V1__DOT__clk;
     vlSelfRef.__Vtrigprevexpr___TOP__tb_ARB_TL_V1__DOT__rst_n__0 
         = vlSelfRef.tb_ARB_TL_V1__DOT__rst_n;
-    vlSelfRef.__Vtrigprevexpr_h60381e42__0 = (1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack));
     vlSelfRef.__Vtrigprevexpr_h603e4c74__0 = (1U & 
                                               ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack) 
                                                >> 1U));
+    vlSelfRef.__Vtrigprevexpr___TOP__tb_ARB_TL_V1__DOT__d_valid__0 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__d_valid;
     if (VL_UNLIKELY(((1U & (~ (IData)(vlSelfRef.__VactDidInit)))))) {
         vlSelfRef.__VactDidInit = 1U;
         vlSelfRef.__VactTriggered.setBit(3U, 1U);

@@ -26,7 +26,8 @@ module mpu(
     output logic rdy,
     output logic bsy,
     output logic [DATA_WIDTH-1:0] rdata,
-    output mpu_error_t err
+    output mpu_error_t err,
+    output logic [CORE_ID_WIDTH-1: 0] source_core_id
 );
 
     logic malloc_cs, dealloc_cs, check_cs;  // chip select signals to malloc, dealloc, check units
@@ -67,6 +68,8 @@ module mpu(
     access_check_result_t access_check_result;
 
     mpu_state_t current_state;
+
+    assign source_core_id = core_id_reg;
 
 
     always_ff @(posedge clk) begin
@@ -187,6 +190,7 @@ module mpu(
                     rdy <= 1'b0;
                     bsy <= 1'b0;
                     current_state <= MPU_IDLE;
+                    $display("MPU_RESULT: Request complete, rdata=0x%0h, err=%0b, core_id_reg=%0h, time=%0t", rdata, err, core_id_reg, $time);
                 end
                 default: begin
                     current_state <= MPU_IDLE;

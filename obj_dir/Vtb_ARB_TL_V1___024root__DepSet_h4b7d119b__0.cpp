@@ -30,6 +30,7 @@ VL_INLINE_OPT VlCoroutine Vtb_ARB_TL_V1___024root___eval_initial__TOP__Vtiming__
     __Vtask_tb_ARB_TL_V1__DOT__dut2__DOT__print_fifo_contents__0__unnamedblk2__DOT__i = 0;
     // Body
     vlSelfRef.tb_ARB_TL_V1__DOT__rst_n = 0U;
+    vlSelfRef.tb_ARB_TL_V1__DOT__d_valid = 0U;
     vlSelfRef.tb_ARB_TL_V1__DOT__req[0U] = Vtb_ARB_TL_V1__ConstPool__CONST_hbbcd61c7_0[0U];
     vlSelfRef.tb_ARB_TL_V1__DOT__req[1U] = Vtb_ARB_TL_V1__ConstPool__CONST_hbbcd61c7_0[1U];
     vlSelfRef.tb_ARB_TL_V1__DOT__req[2U] = Vtb_ARB_TL_V1__ConstPool__CONST_hbbcd61c7_0[2U];
@@ -42,41 +43,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ARB_TL_V1___024root___eval_initial__TOP__Vtiming__
     vlSelfRef.tb_ARB_TL_V1__DOT__req[9U] = Vtb_ARB_TL_V1__ConstPool__CONST_hbbcd61c7_0[9U];
     co_await vlSelfRef.__VdlySched.delay(0xaULL, nullptr, 
                                          "tb_arb_tl_v1.sv", 
-                                         124);
+                                         152);
     vlSelfRef.tb_ARB_TL_V1__DOT__rst_n = 1U;
-    vlSelfRef.tb_ARB_TL_V1__DOT__addr_cool = (0x80800000U 
-                                              | (0x1fffffU 
-                                                 & vlSelfRef.tb_ARB_TL_V1__DOT__addr_cool));
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[0U] = (3U | vlSelfRef.tb_ARB_TL_V1__DOT__req[0U]);
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[2U] = (0xa00U 
-                                            | (0xfffff1ffU 
-                                               & vlSelfRef.tb_ARB_TL_V1__DOT__req[2U]));
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[0U] = ((0x3fU 
-                                             & vlSelfRef.tb_ARB_TL_V1__DOT__req[0U]) 
-                                            | ((IData)(
-                                                       (0xffffffffULL 
-                                                        | ((QData)((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__addr_cool)) 
-                                                           << 0x20U))) 
-                                               << 6U));
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[1U] = (((IData)(
-                                                     (0xffffffffULL 
-                                                      | ((QData)((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__addr_cool)) 
-                                                         << 0x20U))) 
-                                             >> 0x1aU) 
-                                            | ((IData)(
-                                                       ((0xffffffffULL 
-                                                         | ((QData)((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__addr_cool)) 
-                                                            << 0x20U)) 
-                                                        >> 0x20U)) 
-                                               << 6U));
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[2U] = ((0xffffffc0U 
-                                             & vlSelfRef.tb_ARB_TL_V1__DOT__req[2U]) 
-                                            | ((IData)(
-                                                       ((0xffffffffULL 
-                                                         | ((QData)((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__addr_cool)) 
-                                                            << 0x20U)) 
-                                                        >> 0x20U)) 
-                                               >> 0x1aU));
     vlSelfRef.tb_ARB_TL_V1__DOT__addr_cool = (0x80c00000U 
                                               | (0x1fffffU 
                                                  & vlSelfRef.tb_ARB_TL_V1__DOT__addr_cool));
@@ -111,83 +79,34 @@ VL_INLINE_OPT VlCoroutine Vtb_ARB_TL_V1___024root___eval_initial__TOP__Vtiming__
                                                             << 0x20U)) 
                                                         >> 0x20U)) 
                                                >> 0xeU));
-    while ((1U & (~ (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack)))) {
-        co_await vlSelfRef.__VtrigSched_hc8006972__0.trigger(1U, 
-                                                             nullptr, 
-                                                             "@( tb_ARB_TL_V1.ack[0])", 
-                                                             "tb_arb_tl_v1.sv", 
-                                                             139);
-    }
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[0U] = (0xfffffffdU 
-                                            & vlSelfRef.tb_ARB_TL_V1__DOT__req[0U]);
-    VL_WRITEF_NX("win_req = %0#\n",0,76,vlSelfRef.tb_ARB_TL_V1__DOT__win_req.data());
     while ((1U & (~ ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack) 
                      >> 1U)))) {
         co_await vlSelfRef.__VtrigSched_hc809928c__0.trigger(1U, 
                                                              nullptr, 
                                                              "@( tb_ARB_TL_V1.ack[1])", 
                                                              "tb_arb_tl_v1.sv", 
-                                                             142);
+                                                             167);
     }
     vlSelfRef.tb_ARB_TL_V1__DOT__req[2U] = (0xffffdfffU 
                                             & vlSelfRef.tb_ARB_TL_V1__DOT__req[2U]);
     VL_WRITEF_NX("win_req = %0#\n",0,76,vlSelfRef.tb_ARB_TL_V1__DOT__win_req.data());
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[0U] = (3U | vlSelfRef.tb_ARB_TL_V1__DOT__req[0U]);
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[2U] = (0x400U 
-                                            | (0xfffff1ffU 
-                                               & vlSelfRef.tb_ARB_TL_V1__DOT__req[2U]));
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[0U] = (0x3fffc0U 
-                                            | (0x3fU 
-                                               & vlSelfRef.tb_ARB_TL_V1__DOT__req[0U]));
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[1U] = 0U;
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[2U] = (0xffffffc0U 
-                                            & vlSelfRef.tb_ARB_TL_V1__DOT__req[2U]);
-    while ((1U & (~ (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack)))) {
-        co_await vlSelfRef.__VtrigSched_hc8006972__0.trigger(1U, 
+    while ((1U & (~ (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__d_valid)))) {
+        co_await vlSelfRef.__VtrigSched_h6a323483__0.trigger(1U, 
                                                              nullptr, 
-                                                             "@( tb_ARB_TL_V1.ack[0])", 
+                                                             "@( tb_ARB_TL_V1.d_valid)", 
                                                              "tb_arb_tl_v1.sv", 
-                                                             149);
+                                                             188);
     }
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[0U] = (0xfffffffdU 
-                                            & vlSelfRef.tb_ARB_TL_V1__DOT__req[0U]);
+    VL_WRITEF_NX("resp: source=%2#, t=%t, \nc_reps[1].source=%2#\n",0,
+                 4,(0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                            >> 2U)),64,VL_TIME_UNITED_Q(1),
+                 -12,4,(0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U] 
+                                >> 0xbU)));
     co_await vlSelfRef.__VtrigSched_h7f6617e2__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge tb_ARB_TL_V1.clk)", 
                                                          "tb_arb_tl_v1.sv", 
-                                                         151);
-    co_await vlSelfRef.__VtrigSched_h7f6617e2__0.trigger(0U, 
-                                                         nullptr, 
-                                                         "@(posedge tb_ARB_TL_V1.clk)", 
-                                                         "tb_arb_tl_v1.sv", 
-                                                         152);
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[0U] = (3U | vlSelfRef.tb_ARB_TL_V1__DOT__req[0U]);
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[2U] = (0xfffff1ffU 
-                                            & vlSelfRef.tb_ARB_TL_V1__DOT__req[2U]);
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[0U] = (0x3fffc0U 
-                                            | (0x3fU 
-                                               & vlSelfRef.tb_ARB_TL_V1__DOT__req[0U]));
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[1U] = 0U;
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[2U] = (0xffffffc0U 
-                                            & vlSelfRef.tb_ARB_TL_V1__DOT__req[2U]);
-    while ((1U & (~ (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack)))) {
-        co_await vlSelfRef.__VtrigSched_hc8006972__0.trigger(1U, 
-                                                             nullptr, 
-                                                             "@( tb_ARB_TL_V1.ack[0])", 
-                                                             "tb_arb_tl_v1.sv", 
-                                                             156);
-    }
-    vlSelfRef.tb_ARB_TL_V1__DOT__req[0U] = (0xfffffffdU 
-                                            & vlSelfRef.tb_ARB_TL_V1__DOT__req[0U]);
-    VL_WRITEF_NX("All requests issued\n",0);
-    co_await vlSelfRef.__VtrigSched_h7f6617e2__0.trigger(0U, 
-                                                         nullptr, 
-                                                         "@(posedge tb_ARB_TL_V1.clk)", 
-                                                         "tb_arb_tl_v1.sv", 
-                                                         162);
-    co_await vlSelfRef.__VdlySched.delay(0xaULL, nullptr, 
-                                         "tb_arb_tl_v1.sv", 
-                                         172);
+                                                         194);
     __Vtask_tb_ARB_TL_V1__DOT__dut2__DOT__print_fifo_contents__0__unnamedblk2__DOT__i = 0;
     VL_WRITEF_NX("FIFO Contents:\nIndex 0: %0#\n",0,
                  76,vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
@@ -236,6 +155,8 @@ void Vtb_ARB_TL_V1___024root___eval_act(Vtb_ARB_TL_V1___024root* vlSelf) {
     }
 }
 
+extern const VlWide<10>/*319:0*/ Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0;
+
 VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___act_comb__TOP__0(Vtb_ARB_TL_V1___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___act_comb__TOP__0\n"); );
     Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
@@ -268,6 +189,98 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___act_comb__TOP__0(Vtb_ARB_TL_V1___02
                                                    | (8U 
                                                       & (vlSelfRef.tb_ARB_TL_V1__DOT__req[7U] 
                                                          >> 2U)));
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[0U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[0U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[1U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[1U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[2U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[3U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[3U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[4U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[4U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[5U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[5U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[6U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[6U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[7U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[7U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[8U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[8U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[9U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[9U];
+    if (vlSelfRef.tb_ARB_TL_V1__DOT__d_valid) {
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+            = vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage
+            [vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail][0U];
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+            = vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage
+            [vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail][1U];
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] 
+            = vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage
+            [vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail][2U];
+        if ((0U == (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                            >> 2U)))) {
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[0U] 
+                = vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U];
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[1U] 
+                = vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U];
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U] 
+                = ((0xfffffe00U & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U]) 
+                   | vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U]);
+        } else if ((1U == (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                                   >> 2U)))) {
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U] 
+                = ((0x1ffU & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U]) 
+                   | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                      << 9U));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[3U] 
+                = ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                    >> 0x17U) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                                 << 9U));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[4U] 
+                = ((0xfffc0000U & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[4U]) 
+                   | ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                       >> 0x17U) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] 
+                                    << 9U)));
+        } else if ((2U == (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                                   >> 2U)))) {
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[4U] 
+                = ((0x3ffffU & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[4U]) 
+                   | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                      << 0x12U));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[5U] 
+                = ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                    >> 0xeU) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                                << 0x12U));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[6U] 
+                = ((0xf8000000U & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[6U]) 
+                   | ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                       >> 0xeU) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] 
+                                   << 0x12U)));
+        } else if ((3U == (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                                   >> 2U)))) {
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[6U] 
+                = ((0x7ffffffU & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[6U]) 
+                   | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                      << 0x1bU));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[7U] 
+                = ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                    >> 5U) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                              << 0x1bU));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[8U] 
+                = ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                    >> 5U) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] 
+                              << 0x1bU));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[9U] 
+                = (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] 
+                           >> 5U));
+        }
+    } else {
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] = 0U;
+    }
     vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__next_winner_id 
         = vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__winner_id;
     tb_ARB_TL_V1__DOT__dut__DOT__best_age = 0U;
@@ -386,35 +399,39 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___act_comb__TOP__0(Vtb_ARB_TL_V1___02
 
 void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__0(Vtb_ARB_TL_V1___024root* vlSelf);
 void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1___024root* vlSelf);
-void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1___024root* vlSelf);
 void Vtb_ARB_TL_V1___024root___nba_comb__TOP__0(Vtb_ARB_TL_V1___024root* vlSelf);
-void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__3(Vtb_ARB_TL_V1___024root* vlSelf);
 void Vtb_ARB_TL_V1___024root___nba_comb__TOP__1(Vtb_ARB_TL_V1___024root* vlSelf);
+void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1___024root* vlSelf);
 void Vtb_ARB_TL_V1___024root___nba_comb__TOP__2(Vtb_ARB_TL_V1___024root* vlSelf);
+void Vtb_ARB_TL_V1___024root___nba_comb__TOP__3(Vtb_ARB_TL_V1___024root* vlSelf);
+void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__3(Vtb_ARB_TL_V1___024root* vlSelf);
 
 void Vtb_ARB_TL_V1___024root___eval_nba(Vtb_ARB_TL_V1___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___eval_nba\n"); );
     Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+    if ((3ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vtb_ARB_TL_V1___024root___nba_sequent__TOP__0(vlSelf);
     }
-    if ((3ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(vlSelf);
-    }
     if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(vlSelf);
+        Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(vlSelf);
     }
     if ((0x1dULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vtb_ARB_TL_V1___024root___nba_comb__TOP__0(vlSelf);
     }
-    if ((3ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        Vtb_ARB_TL_V1___024root___nba_sequent__TOP__3(vlSelf);
+    if ((0x1fULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vtb_ARB_TL_V1___024root___nba_comb__TOP__1(vlSelf);
     }
-    if ((0x1fULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+    if ((3ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+        Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(vlSelf);
         Vtb_ARB_TL_V1___024root___nba_comb__TOP__2(vlSelf);
+    }
+    if ((0x1fULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+        Vtb_ARB_TL_V1___024root___nba_comb__TOP__3(vlSelf);
+    }
+    if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+        Vtb_ARB_TL_V1___024root___nba_sequent__TOP__3(vlSelf);
     }
 }
 
@@ -422,51 +439,17 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__0(Vtb_ARB_TL_V1__
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_sequent__TOP__0\n"); );
     Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg;
-    vlSelfRef.__VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0 = 0U;
-}
-
-VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1\n"); );
-    Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
     // Init
     VlWide<3>/*75:0*/ __Vdly__tb_ARB_TL_V1__DOT__win_req;
     VL_ZERO_W(76, __Vdly__tb_ARB_TL_V1__DOT__win_req);
-    QData/*46:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata = 0;
     QData/*46:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_check_rdata;
     __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_check_rdata = 0;
     CData/*1:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_inst__DOT__current_state;
     __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_inst__DOT__current_state = 0;
-    CData/*2:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 0;
-    SData/*9:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index = 0;
-    SData/*9:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id = 0;
-    CData/*0:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from = 0;
     SData/*10:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__queue_length;
     __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__queue_length = 0;
+    CData/*2:0*/ __Vdly__tb_ARB_TL_V1__DOT__dut3__DOT__queue_length;
+    __Vdly__tb_ARB_TL_V1__DOT__dut3__DOT__queue_length = 0;
     CData/*0:0*/ __VdlySet__tb_ARB_TL_V1__DOT__dut__DOT__ages__v0;
     __VdlySet__tb_ARB_TL_V1__DOT__dut__DOT__ages__v0 = 0;
     CData/*7:0*/ __VdlyVal__tb_ARB_TL_V1__DOT__dut__DOT__ages__v1;
@@ -527,7 +510,27 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1__
     __VdlyVal__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__reservation_ids__v1 = 0;
     SData/*9:0*/ __VdlyDim0__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__reservation_ids__v1;
     __VdlyDim0__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__reservation_ids__v1 = 0;
+    VlWide<3>/*72:0*/ __VdlyVal__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0;
+    VL_ZERO_W(73, __VdlyVal__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0);
+    CData/*1:0*/ __VdlyDim0__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0;
+    __VdlyDim0__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0 = 0;
+    CData/*0:0*/ __VdlySet__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0;
+    __VdlySet__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0 = 0;
+    CData/*0:0*/ __VdlySet__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v1;
+    __VdlySet__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v1 = 0;
     // Body
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state;
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id;
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from;
+    __VdlySet__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0 = 0U;
+    __VdlySet__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v1 = 0U;
+    __Vdly__tb_ARB_TL_V1__DOT__dut3__DOT__queue_length 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__queue_length;
     __Vdly__tb_ARB_TL_V1__DOT__win_req[0U] = vlSelfRef.tb_ARB_TL_V1__DOT__win_req[0U];
     __Vdly__tb_ARB_TL_V1__DOT__win_req[1U] = vlSelfRef.tb_ARB_TL_V1__DOT__win_req[1U];
     __Vdly__tb_ARB_TL_V1__DOT__win_req[2U] = vlSelfRef.tb_ARB_TL_V1__DOT__win_req[2U];
@@ -535,22 +538,10 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1__
     __VdlySet__tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage__v1 = 0U;
     vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__dut2__DOT__queue_length 
         = vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_rdy 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_rdy;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_inst__DOT__current_state 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_inst__DOT__current_state;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_result 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_result;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from;
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_from_counter 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_from_counter;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__queue_length 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__queue_length;
     __VdlySet__tb_ARB_TL_V1__DOT__dut__DOT__ages__v0 = 0U;
     __VdlySet__tb_ARB_TL_V1__DOT__dut__DOT__ages__v1 = 0U;
     __VdlySet__tb_ARB_TL_V1__DOT__dut__DOT__ages__v2 = 0U;
@@ -561,13 +552,15 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1__
     __VdlySet__tb_ARB_TL_V1__DOT__dut__DOT__ages__v7 = 0U;
     __VdlySet__tb_ARB_TL_V1__DOT__dut__DOT__ages__v8 = 0U;
     __VdlySet__tb_ARB_TL_V1__DOT__dut__DOT__ages__v9 = 0U;
-    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_from_counter 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_from_counter;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__queue_length 
-        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__queue_length;
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_rdy 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_rdy;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_inst__DOT__current_state 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_inst__DOT__current_state;
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_result 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_result;
     vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_malloc_rdata 
         = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_malloc_rdata;
-    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata 
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata 
         = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata;
     __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_check_rdata 
         = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_check_rdata;
@@ -576,6 +569,53 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1__
     __VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_mem_inst__DOT__act_mem__v0 = 0U;
     __VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_mem_inst__DOT__act_mem__v1 = 0U;
     __VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_mem_inst__DOT__act_mem__v2 = 0U;
+    if (vlSelfRef.tb_ARB_TL_V1__DOT__rst_n) {
+        if (VL_UNLIKELY((((IData)(vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__enqueue) 
+                          & (4U > (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__queue_length)))))) {
+            VL_WRITEF_NX("ENQUEUED FROM MPU: data = %0x, source = %0x\n",0,
+                         32,((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__in_req[1U] 
+                              << 0x1aU) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__in_req[0U] 
+                                           >> 6U)),
+                         4,(0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__in_req[0U] 
+                                    >> 2U)));
+            __Vdly__tb_ARB_TL_V1__DOT__dut3__DOT__queue_length 
+                = (7U & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__queue_length)));
+            __VdlyVal__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0[0U] 
+                = vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__in_req[0U];
+            __VdlyVal__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0[1U] 
+                = vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__in_req[1U];
+            __VdlyVal__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0[2U] 
+                = vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__in_req[2U];
+            __VdlyDim0__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0 
+                = vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__head;
+            __VdlySet__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0 = 1U;
+            vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__head 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__head)));
+        }
+        if (VL_UNLIKELY((((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__d_valid) 
+                          & (0U < (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__queue_length)))))) {
+            VL_WRITEF_NX("DEQUEUED FROM RESP MPU: data = %0x, source = %0x, time=%t\n",0,
+                         32,((vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage
+                              [vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail][1U] 
+                              << 0x1aU) | (vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage
+                                           [vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail][0U] 
+                                           >> 6U)),
+                         4,(0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage
+                                    [vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail][0U] 
+                                    >> 2U)),64,VL_TIME_UNITED_Q(1),
+                         -12);
+            vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail)));
+            __Vdly__tb_ARB_TL_V1__DOT__dut3__DOT__queue_length 
+                = (7U & ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__queue_length) 
+                         - (IData)(1U)));
+        }
+    } else {
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__head = 0U;
+        __Vdly__tb_ARB_TL_V1__DOT__dut3__DOT__queue_length = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail = 0U;
+        __VdlySet__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v1 = 1U;
+    }
     if (vlSelfRef.tb_ARB_TL_V1__DOT__rst_n) {
         if (((0U == (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__cs)) 
              & (1U == (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__ns)))) {
@@ -747,6 +787,30 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1__
                 = (0x7ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__unnamedblk1__DOT__i)));
         }
     }
+    if (__VdlySet__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0) {
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[__VdlyDim0__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0][0U] 
+            = __VdlyVal__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0[0U];
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[__VdlyDim0__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0][1U] 
+            = __VdlyVal__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0[1U];
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[__VdlyDim0__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0][2U] 
+            = __VdlyVal__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v0[2U];
+    }
+    if (__VdlySet__tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage__v1) {
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[0U][0U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[0U][1U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[0U][2U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[1U][0U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[1U][1U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[1U][2U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[2U][0U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[2U][1U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[2U][2U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[3U][0U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[3U][1U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage[3U][2U] = 0U;
+    }
+    vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__queue_length 
+        = __Vdly__tb_ARB_TL_V1__DOT__dut3__DOT__queue_length;
     vlSelfRef.tb_ARB_TL_V1__DOT__win_req[0U] = __Vdly__tb_ARB_TL_V1__DOT__win_req[0U];
     vlSelfRef.tb_ARB_TL_V1__DOT__win_req[1U] = __Vdly__tb_ARB_TL_V1__DOT__win_req[1U];
     vlSelfRef.tb_ARB_TL_V1__DOT__win_req[2U] = __Vdly__tb_ARB_TL_V1__DOT__win_req[2U];
@@ -803,7 +867,7 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1__
                             = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr;
                         __VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_mem_inst__DOT__act_mem__v1 = 1U;
                     } else {
-                        __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata 
+                        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata 
                             = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_mem_inst__DOT__act_mem
                             [vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr];
                     }
@@ -940,6 +1004,7 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1__
         vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__ages[2U] = 0U;
         vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__ages[3U] = 0U;
     }
+    vlSelfRef.tb_ARB_TL_V1__DOT__d_valid = (0U < (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__queue_length));
     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_full 
         = (0x400U == (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_counter_inst__DOT__queue_length));
     if (vlSelfRef.tb_ARB_TL_V1__DOT__rst_n) {
@@ -997,123 +1062,6 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1__
         vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_act_addr = 0U;
     }
     if (vlSelfRef.tb_ARB_TL_V1__DOT__rst_n) {
-        if ((4U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
-            if ((2U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
-                if ((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
-                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 0U;
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 0U;
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
-                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index = 0U;
-                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id = 0U;
-                } else if ((1U & (((0x3ffU & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata)) 
-                                   != (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id)) 
-                                  | (~ (IData)((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata 
-                                                >> 0x2eU)))))) {
-                    VL_WRITEF_NX("DEALLOC: Reservation id mismatch. Deallocation complete.\n",0);
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 1U;
-                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 3U;
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_to_counter 
-                        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id;
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_enqueue = 1U;
-                } else {
-                    VL_WRITEF_NX("DEALLOC: Deallocated block at index %0#\n",0,
-                                 10,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index);
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 1U;
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 1U;
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr 
-                        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_wdata = 0ULL;
-                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 5U;
-                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index 
-                        = (0x3ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index)));
-                }
-            } else if ((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr 
-                    = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
-                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from = 1U;
-                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 1U;
-            } else if (((0xfU & (IData)((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata 
-                                         >> 0xaU))) 
-                        != (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__core_id_reg))) {
-                VL_WRITEF_NX("DEALLOC: Owner core id mismatch. Deallocation complete.\n",0);
-                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 3U;
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 1U;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
-            } else {
-                VL_WRITEF_NX("DEALLOC: Deallocating block at index %0#\n",0,
-                             10,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index);
-                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id 
-                    = (0x3ffU & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata));
-                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 5U;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 1U;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 1U;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr 
-                    = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_wdata = 0ULL;
-                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index 
-                    = (0x3ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index)));
-            }
-        } else if ((2U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
-            if (VL_UNLIKELY(((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))))) {
-                VL_WRITEF_NX("DEALLOC: Deallocation operation complete at cycle %0#\n",0,
-                             64,VL_TIME_UNITED_Q(1));
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 0U;
-                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 0U;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_to_counter = 0U;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_enqueue = 0U;
-            } else {
-                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 0U;
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 0U;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
-                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index = 0U;
-                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id = 0U;
-            }
-        } else if ((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
-            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
-            __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state 
-                = ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from)
-                    ? 6U : 4U);
-        } else if (VL_UNLIKELY((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs))) {
-            VL_WRITEF_NX("DEALLOC: Deallocation started for core id %0# at address %0x\n",0,
-                         4,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg,
-                         32,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg);
-            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr 
-                = (0x3ffU & (vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg 
-                             >> 0xaU));
-            __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index 
-                = (0x3ffU & (vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg 
-                             >> 0xaU));
-            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 1U;
-            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
-            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__core_id_reg 
-                = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg;
-            __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 1U;
-            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_to_counter = 0U;
-            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_enqueue = 0U;
-            __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id = 0U;
-            __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from = 0U;
-        }
-    } else {
-        __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_wdata = 0ULL;
-        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr = 0U;
-        __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index = 0U;
-        __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__core_id_reg = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_to_counter = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_enqueue = 0U;
-        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 0U;
-        __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from = 0U;
-    }
-    if (vlSelfRef.tb_ARB_TL_V1__DOT__rst_n) {
         vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__cs = vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__ns;
         vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__winner_id 
             = vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__next_winner_id;
@@ -1125,36 +1073,71 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1__
         = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_check_rdata;
     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_inst__DOT__current_state 
         = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_inst__DOT__current_state;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata 
-        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state 
-        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index 
-        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id 
-        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from 
-        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from;
 }
 
-VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2\n"); );
+VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1(Vtb_ARB_TL_V1___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_sequent__TOP__1\n"); );
     Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Init
+    CData/*2:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 0;
+    CData/*0:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs = 0;
+    IData/*31:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg = 0;
+    CData/*2:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 0;
+    SData/*9:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg = 0;
+    SData/*10:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left = 0;
+    SData/*10:0*/ __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right = 0;
     IData/*31:0*/ __VdlyVal__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0;
     __VdlyVal__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0 = 0;
     IData/*17:0*/ __VdlyDim0__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0;
     __VdlyDim0__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0 = 0;
+    CData/*0:0*/ __VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0;
+    __VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0 = 0;
     // Body
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state;
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs;
+    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg;
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg;
+    __VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0 = 0U;
+    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg 
+        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg;
     if (vlSelfRef.tb_ARB_TL_V1__DOT__rst_n) {
         if ((4U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state))) {
             if ((2U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state))) {
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 0U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 0U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_rdy = 0U;
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_bsy = 0U;
-            } else if ((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state))) {
+            } else if (VL_UNLIKELY(((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state))))) {
+                VL_WRITEF_NX("MPU_RESULT: Request complete, rdata=0x%0x, err=%0b, core_id_reg=%0x, time=%0t\n",0,
+                             32,vlSelfRef.tb_ARB_TL_V1__DOT__rdata,
+                             3,(IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_err),
+                             4,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg,
+                             64,VL_TIME_UNITED_Q(1),
+                             -12);
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_rdy = 0U;
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_bsy = 0U;
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 0U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 0U;
             } else {
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_cs = 0U;
                 if (VL_UNLIKELY((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_rdy))) {
@@ -1174,47 +1157,73 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
                                 = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg;
                             __VdlyDim0__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0 
                                 = (0x3ffffU & vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg);
-                            vlSelfRef.__VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0 = 1U;
+                            __VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0 = 1U;
                         } else {
+                            vlSelfRef.tb_ARB_TL_V1__DOT__rdata 
+                                = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory
+                                [(0x3ffffU & vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg)];
                             VL_WRITEF_NX("MPU_ACCESS_CHECK: read data=0x%0x from addr=%0x\n",0,
                                          32,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory
                                          [(0x3ffffU 
                                            & vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg)],
                                          32,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg);
                         }
+                        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_err = 1U;
                     } else {
                         VL_WRITEF_NX("MPU_ACCESS_CHECK: access denied for core_id=%0#, addr=%0x, we=%0b\n",0,
                                      4,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg,
                                      32,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg,
                                      1,(IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__we_reg));
+                        vlSelfRef.tb_ARB_TL_V1__DOT__rdata = 0U;
+                        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_err = 2U;
                     }
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 5U;
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 5U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_rdy = 1U;
                 } else {
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 4U;
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 4U;
                 }
             }
         } else if ((2U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state))) {
             if ((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state))) {
-                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs = 0U;
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state 
-                    = ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy)
-                        ? 5U : 3U);
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs = 0U;
+                if (vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy) {
+                    if (vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_err) {
+                        vlSelfRef.tb_ARB_TL_V1__DOT__rdata = 0U;
+                        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_err = 2U;
+                    } else {
+                        vlSelfRef.tb_ARB_TL_V1__DOT__rdata = 0U;
+                        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_err = 0U;
+                    }
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 5U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_rdy = 1U;
+                } else {
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 3U;
+                }
             } else {
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs = 0U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs = 0U;
                 if (VL_UNLIKELY((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_rdy))) {
                     VL_WRITEF_NX("MPU_MALLOC: malloc_base_addr=%0x, malloc_err=%0b\n",0,
                                  32,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_base_addr,
                                  1,(IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_err));
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 5U;
+                    if (vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_err) {
+                        vlSelfRef.tb_ARB_TL_V1__DOT__rdata = 0U;
+                        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_err = 2U;
+                    } else {
+                        vlSelfRef.tb_ARB_TL_V1__DOT__rdata 
+                            = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_base_addr;
+                        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_err = 0U;
+                    }
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 5U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_rdy = 1U;
                 } else {
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 2U;
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 2U;
                 }
             }
         } else if ((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state))) {
             if (vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_bsy) {
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 1U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 1U;
             } else {
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 0U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 0U;
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_bsy = 0U;
             }
         } else if (VL_UNLIKELY(((0U < (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length))))) {
@@ -1228,7 +1237,7 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
             vlSelfRef.tb_ARB_TL_V1__DOT__mpu_bsy = 1U;
             vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg 
                 = vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__core_id;
-            vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg 
+            __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg 
                 = vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__addr;
             vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg 
                 = vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__wdata;
@@ -1237,11 +1246,11 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
             if (VL_LIKELY((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__cfg))) {
                 if ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__addr 
                      >> 0x1fU)) {
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs = 1U;
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 2U;
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs = 1U;
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 2U;
                 } else {
-                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs = 1U;
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 3U;
+                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs = 1U;
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 3U;
                 }
             } else {
                 VL_WRITEF_NX("MPU: Starting access check for core_id=%0#, addr=%0x, we=%0b\n",0,
@@ -1249,19 +1258,22 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
                              32,vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__addr,
                              1,(IData)(vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__we));
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_cs = 1U;
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 4U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 4U;
             }
         }
     } else {
-        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 1U;
+        __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state = 1U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_rdy = 0U;
         vlSelfRef.tb_ARB_TL_V1__DOT__mpu_bsy = 1U;
-        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__rdata = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_err = 0U;
+        __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs = 0U;
+        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs = 0U;
         vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_cs = 0U;
     }
     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state;
-    if (vlSelfRef.__VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0) {
+        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__current_state;
+    if (__VdlySet__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0) {
         vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory[__VdlyDim0__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0] 
             = __VdlyVal__tb_ARB_TL_V1__DOT__mpu_inst__DOT__memory__v0;
     }
@@ -1269,22 +1281,22 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
         if ((4U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state))) {
             if ((2U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state))) {
                 if (VL_LIKELY(((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state))))) {
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 1U;
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 1U;
                 } else {
                     VL_WRITEF_NX("MALLOC_RESERVATION_ID: obtained reservation_id=%0#\n",0,
                                  10,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_from_counter);
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg 
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg 
                         = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_from_counter;
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 3U;
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 3U;
                 }
             } else if (VL_LIKELY(((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state))))) {
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_dequeue = 0U;
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 6U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 6U;
             } else {
                 VL_WRITEF_NX("MALLOC_RESULT: base_addr=%0x, err=%0b\n",0,
                              32,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_base_addr,
                              1,(IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_err));
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 0U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 0U;
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_rdy = 0U;
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_dequeue = 0U;
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_we = 0U;
@@ -1302,7 +1314,7 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
                                       - (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__num_blocks_reg))),
                                  11,(IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right),
                                  10,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg);
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 4U;
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 4U;
                     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_we = 0U;
                     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_cs = 0U;
                     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_base_addr 
@@ -1328,14 +1340,14 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
                                                             | (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg))))));
                     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_addr 
                         = (0x3ffU & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left));
-                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left 
+                    __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left 
                         = (0x7ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left)));
                 }
             } else if (VL_UNLIKELY(((0x400U == (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right))))) {
                 VL_WRITEF_NX("MALLOC_SEARCH_RIGHT: right == BLOCK_COUNT\n",0);
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_err = 1U;
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_rdy = 1U;
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 4U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 4U;
             } else if (VL_UNLIKELY(((((IData)(1U) + 
                                       ((0x3ffU & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right)) 
                                        - (0x3ffU & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left)))) 
@@ -1343,18 +1355,18 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
                 VL_WRITEF_NX("MALLOC_SEARCH_RIGHT: found enough contiguous blocks from %0# to %0#\n",0,
                              11,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left,
                              11,(IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right));
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 5U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 5U;
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_dequeue = 1U;
             } else if (VL_UNLIKELY(((1U & (IData)((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_malloc_rdata 
                                                    >> 0x2eU)))))) {
                 VL_WRITEF_NX("MALLOC_SEARCH_RIGHT: couldn't find enough contiguous blocks, restarting search from %0#\n",0,
                              32,((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right)));
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left 
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left 
                     = (0x7ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right)));
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_addr 
                     = (0x3ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right)));
             } else {
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right 
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right 
                     = (0x7ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right)));
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_addr 
                     = (0x3ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right)));
@@ -1364,14 +1376,14 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
                 VL_WRITEF_NX("MALLOC_SEARCH_LEFT: left == BLOCK_COUNT\n",0);
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_err = 1U;
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_rdy = 1U;
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 4U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 4U;
             } else if (VL_LIKELY(((1U & (IData)((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_malloc_rdata 
                                                  >> 0x2eU)))))) {
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left 
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left 
                     = (0x7ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left)));
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_addr 
                     = (0x3ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left)));
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 7U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 7U;
             } else {
                 VL_WRITEF_NX("req_core_id=%0#, owner: %0# valid=%0b\nMALLOC_SEARCH_LEFT: found free block at %0#\n",0,
                              4,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__core_id_reg,
@@ -1380,8 +1392,8 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
                              1,(1U & (IData)((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_malloc_rdata 
                                               >> 0x2eU))),
                              11,(IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left));
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 2U;
-                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right 
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 2U;
+                __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right 
                     = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left;
                 vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_addr 
                     = (0x3ffU & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left));
@@ -1404,42 +1416,38 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1__
             vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__write_mask_reg 
                 = (vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg 
                    >> 0x10U);
-            vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left = 0U;
-            vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right = 0U;
+            __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left = 0U;
+            __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right = 0U;
             vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_err = 0U;
-            vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 7U;
+            __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 7U;
             vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_cs = 1U;
             vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_we = 0U;
             vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_addr = 0U;
         }
     } else {
         VL_WRITEF_NX("MALLOC_RESET\n",0);
-        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 0U;
+        __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state = 0U;
         vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_rdy = 0U;
         vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_err = 0U;
         vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_base_addr = 0U;
-        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left = 0U;
-        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right = 0U;
+        __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left = 0U;
+        __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right = 0U;
         vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_we = 0U;
         vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_cs = 0U;
         vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_dequeue = 0U;
     }
     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs;
+        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_cs;
     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state;
+        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__current_state;
     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg;
+        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__reservation_id_reg;
     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left;
+        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__left;
     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right;
+        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_inst__DOT__right;
     vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg;
+        = __Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__addr_reg;
 }
 
 VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_comb__TOP__0(Vtb_ARB_TL_V1___024root* vlSelf) {
@@ -1467,94 +1475,8 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_comb__TOP__0(Vtb_ARB_TL_V1___02
                                                          >> 2U)));
 }
 
-VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__3(Vtb_ARB_TL_V1___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_sequent__TOP__3\n"); );
-    Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_rdy 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_rdy;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_bsy 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_bsy;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_result 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_result;
-    vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__dut2__DOT__queue_length;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_from_counter 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_from_counter;
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_malloc_rdata 
-        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_malloc_rdata;
-    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut2__enqueue 
-        = ((vlSelfRef.tb_ARB_TL_V1__DOT__win_req[0U] 
-            >> 1U) & ((6U > (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length)) 
-                      & (0U != (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack))));
-    if ((0U < (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length))) {
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__cfg 
-            = (1U & (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
-                     [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
-                        ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
-                        : 0U)][2U] >> 9U));
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__we 
-            = (1U & (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
-                     [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
-                        ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
-                        : 0U)][2U] >> 0xaU));
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__core_id 
-            = (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
-                       [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
-                          ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
-                          : 0U)][0U] >> 2U));
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__addr 
-            = ((vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
-                [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
-                   ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
-                   : 0U)][2U] << 0x1aU) | (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
-                                           [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
-                                              ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
-                                              : 0U)][1U] 
-                                           >> 6U));
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__wdata 
-            = ((vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
-                [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
-                   ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
-                   : 0U)][1U] << 0x1aU) | (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
-                                           [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
-                                              ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
-                                              : 0U)][0U] 
-                                           >> 6U));
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__free_reserve 
-            = (1U & (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
-                     [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
-                        ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
-                        : 0U)][2U] >> 0xbU));
-    } else {
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__cfg = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__we = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__core_id = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__addr = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__wdata = 0U;
-        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__free_reserve = 0U;
-    }
-}
-
 VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_comb__TOP__1(Vtb_ARB_TL_V1___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_comb__TOP__1\n"); );
-    Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_sender 
-        = ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_cs)
-            ? 0U : ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs)
-                     ? 1U : 2U));
-    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut2__dequeue 
-        = ((~ (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_bsy)) 
-           & (0U < (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length)));
-}
-
-VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_comb__TOP__2(Vtb_ARB_TL_V1___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_comb__TOP__2\n"); );
     Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Init
@@ -1669,18 +1591,369 @@ VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_comb__TOP__2(Vtb_ARB_TL_V1___02
                     = tb_ARB_TL_V1__DOT__dut__DOT__idx;
                 tb_ARB_TL_V1__DOT__dut__DOT__found = 1U;
             }
-            vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__ns = 1U;
-        } else {
-            vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__ns = 0U;
+        }
+    }
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[0U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[0U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[1U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[1U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[2U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[3U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[3U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[4U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[4U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[5U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[5U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[6U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[6U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[7U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[7U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[8U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[8U];
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[9U] 
+        = Vtb_ARB_TL_V1__ConstPool__CONST_hd953b0cd_0[9U];
+    if (vlSelfRef.tb_ARB_TL_V1__DOT__d_valid) {
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+            = vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage
+            [vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail][0U];
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+            = vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage
+            [vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail][1U];
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] 
+            = vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__fifo_storage
+            [vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__tail][2U];
+        if ((0U == (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                            >> 2U)))) {
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[0U] 
+                = vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U];
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[1U] 
+                = vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U];
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U] 
+                = ((0xfffffe00U & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U]) 
+                   | vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U]);
+        } else if ((1U == (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                                   >> 2U)))) {
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U] 
+                = ((0x1ffU & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[2U]) 
+                   | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                      << 9U));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[3U] 
+                = ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                    >> 0x17U) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                                 << 9U));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[4U] 
+                = ((0xfffc0000U & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[4U]) 
+                   | ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                       >> 0x17U) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] 
+                                    << 9U)));
+        } else if ((2U == (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                                   >> 2U)))) {
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[4U] 
+                = ((0x3ffffU & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[4U]) 
+                   | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                      << 0x12U));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[5U] 
+                = ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                    >> 0xeU) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                                << 0x12U));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[6U] 
+                = ((0xf8000000U & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[6U]) 
+                   | ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                       >> 0xeU) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] 
+                                   << 0x12U)));
+        } else if ((3U == (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                                   >> 2U)))) {
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[6U] 
+                = ((0x7ffffffU & vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[6U]) 
+                   | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                      << 0x1bU));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[7U] 
+                = ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] 
+                    >> 5U) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                              << 0x1bU));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[8U] 
+                = ((vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] 
+                    >> 5U) | (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] 
+                              << 0x1bU));
+            vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut__c_resp[9U] 
+                = (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] 
+                           >> 5U));
         }
     } else {
-        vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__ns = 
-            ((1U == (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__cs))
-              ? ((((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__reqs) 
-                   >> (3U & vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__winner_id)) 
-                  & (6U > (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length)))
-                  ? 0U : 1U) : 0U);
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[0U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[1U] = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellout__dut3__out_req[2U] = 0U;
     }
+}
+
+VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2(Vtb_ARB_TL_V1___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_sequent__TOP__2\n"); );
+    Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_rdy 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__check_rdy;
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_bsy 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_bsy;
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_result 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__access_check_result;
+    vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__dut2__DOT__queue_length;
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_from_counter 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_from_counter;
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_malloc_rdata 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_malloc_rdata;
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut2__enqueue 
+        = ((vlSelfRef.tb_ARB_TL_V1__DOT__win_req[0U] 
+            >> 1U) & ((6U > (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length)) 
+                      & (0U != (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__ack))));
+    if ((0U < (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length))) {
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__cfg 
+            = (1U & (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
+                     [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
+                        ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
+                        : 0U)][2U] >> 9U));
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__we 
+            = (1U & (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
+                     [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
+                        ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
+                        : 0U)][2U] >> 0xaU));
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__core_id 
+            = (0xfU & (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
+                       [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
+                          ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
+                          : 0U)][0U] >> 2U));
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__addr 
+            = ((vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
+                [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
+                   ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
+                   : 0U)][2U] << 0x1aU) | (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
+                                           [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
+                                              ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
+                                              : 0U)][1U] 
+                                           >> 6U));
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__wdata 
+            = ((vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
+                [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
+                   ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
+                   : 0U)][1U] << 0x1aU) | (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
+                                           [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
+                                              ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
+                                              : 0U)][0U] 
+                                           >> 6U));
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__free_reserve 
+            = (1U & (vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__fifo_storage
+                     [((5U >= (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail))
+                        ? (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__tail)
+                        : 0U)][2U] >> 0xbU));
+    } else {
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__cfg = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__we = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__core_id = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__addr = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__wdata = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__mpu_inst__free_reserve = 0U;
+    }
+    if (vlSelfRef.tb_ARB_TL_V1__DOT__rst_n) {
+        if ((4U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
+            if ((2U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
+                if ((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
+                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 0U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 0U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
+                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index = 0U;
+                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id = 0U;
+                } else if ((1U & (((0x3ffU & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata)) 
+                                   != (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id)) 
+                                  | (~ (IData)((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata 
+                                                >> 0x2eU)))))) {
+                    VL_WRITEF_NX("DEALLOC: Reservation id mismatch. Deallocation complete.\n",0);
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 1U;
+                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 3U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_to_counter 
+                        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_enqueue = 1U;
+                } else {
+                    VL_WRITEF_NX("DEALLOC: Deallocated block at index %0#\n",0,
+                                 10,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index);
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 1U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 1U;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr 
+                        = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
+                    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_wdata = 0ULL;
+                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 5U;
+                    vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index 
+                        = (0x3ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index)));
+                }
+            } else if ((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr 
+                    = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from = 1U;
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 1U;
+            } else if (((0xfU & (IData)((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata 
+                                         >> 0xaU))) 
+                        != (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__core_id_reg))) {
+                VL_WRITEF_NX("DEALLOC: Owner core id mismatch. Deallocation complete.\n",0);
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 3U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 1U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_err = 1U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
+            } else {
+                VL_WRITEF_NX("DEALLOC: Deallocating block at index %0#\n",0,
+                             10,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index);
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id 
+                    = (0x3ffU & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata));
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 5U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 1U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 1U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr 
+                    = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_wdata = 0ULL;
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index 
+                    = (0x3ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index)));
+            }
+        } else if ((2U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
+            if (VL_UNLIKELY(((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))))) {
+                VL_WRITEF_NX("DEALLOC: Deallocation operation complete at cycle %0#\n",0,
+                             64,VL_TIME_UNITED_Q(1));
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 0U;
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 0U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_to_counter = 0U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_enqueue = 0U;
+            } else {
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 0U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 0U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
+                vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index = 0U;
+                vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id = 0U;
+            }
+        } else if ((1U & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state))) {
+            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
+            vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state 
+                = ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from)
+                    ? 6U : 4U);
+        } else if (VL_UNLIKELY((vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs))) {
+            VL_WRITEF_NX("DEALLOC: Deallocation started for core id %0# at address %0x\n",0,
+                         4,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg,
+                         32,vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg);
+            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr 
+                = (0x3ffU & (vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg 
+                             >> 0xaU));
+            vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index 
+                = (0x3ffU & (vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg 
+                             >> 0xaU));
+            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 1U;
+            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
+            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__core_id_reg 
+                = vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg;
+            vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 1U;
+            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_to_counter = 0U;
+            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_enqueue = 0U;
+            vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id = 0U;
+            vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from = 0U;
+            vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_err = 0U;
+        }
+    } else {
+        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_we = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_wdata = 0ULL;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_addr = 0U;
+        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index = 0U;
+        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__core_id_reg = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_err = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__reservation_id_to_counter = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_enqueue = 0U;
+        vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_rdy = 0U;
+        vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from = 0U;
+    }
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_dealloc_rdata;
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__current_state;
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__block_index;
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__reservation_id;
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_inst__DOT__from;
+}
+
+VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_comb__TOP__2(Vtb_ARB_TL_V1___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_comb__TOP__2\n"); );
+    Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__enqueue 
+        = ((4U != (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut3__DOT__queue_length)) 
+           & (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_rdy));
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut2__dequeue 
+        = ((~ (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_bsy)) 
+           & (0U < (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length)));
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__act_sender 
+        = ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__malloc_act_cs)
+            ? 0U : ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_act_cs)
+                     ? 1U : 2U));
+}
+
+VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_comb__TOP__3(Vtb_ARB_TL_V1___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_comb__TOP__3\n"); );
+    Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__ns = ((0U 
+                                                  == (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__cs))
+                                                  ? 
+                                                 ((0U 
+                                                   != (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__reqs))
+                                                   ? 1U
+                                                   : 0U)
+                                                  : 
+                                                 ((1U 
+                                                   == (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__cs))
+                                                   ? 
+                                                  ((((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__reqs) 
+                                                     >> 
+                                                     (3U 
+                                                      & vlSelfRef.tb_ARB_TL_V1__DOT__dut__DOT__winner_id)) 
+                                                    & (6U 
+                                                       > (IData)(vlSelfRef.tb_ARB_TL_V1__DOT__dut2__DOT__queue_length)))
+                                                    ? 0U
+                                                    : 1U)
+                                                   : 0U));
+}
+
+VL_INLINE_OPT void Vtb_ARB_TL_V1___024root___nba_sequent__TOP__3(Vtb_ARB_TL_V1___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ARB_TL_V1___024root___nba_sequent__TOP__3\n"); );
+    Vtb_ARB_TL_V1__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__dealloc_cs;
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__wdata_reg;
+    vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg 
+        = vlSelfRef.__Vdly__tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg;
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__in_req[0U] 
+        = (3U | (((IData)((QData)((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__rdata))) 
+                  << 6U) | ((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_inst__DOT__core_id_reg) 
+                            << 2U)));
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__in_req[1U] 
+        = (((IData)((QData)((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__rdata))) 
+            >> 0x1aU) | ((IData)(((QData)((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__rdata)) 
+                                  >> 0x20U)) << 6U));
+    vlSelfRef.tb_ARB_TL_V1__DOT____Vcellinp__dut3__in_req[2U] 
+        = (((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__mpu_err) 
+            << 6U) | ((IData)(((QData)((IData)(vlSelfRef.tb_ARB_TL_V1__DOT__rdata)) 
+                               >> 0x20U)) >> 0x1aU));
 }
 
 void Vtb_ARB_TL_V1___024root___timing_resume(Vtb_ARB_TL_V1___024root* vlSelf) {
@@ -1689,12 +1962,12 @@ void Vtb_ARB_TL_V1___024root___timing_resume(Vtb_ARB_TL_V1___024root* vlSelf) {
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     if ((8ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        vlSelfRef.__VtrigSched_hc8006972__0.resume(
-                                                   "@( tb_ARB_TL_V1.ack[0])");
-    }
-    if ((0x10ULL & vlSelfRef.__VactTriggered.word(0U))) {
         vlSelfRef.__VtrigSched_hc809928c__0.resume(
                                                    "@( tb_ARB_TL_V1.ack[1])");
+    }
+    if ((0x10ULL & vlSelfRef.__VactTriggered.word(0U))) {
+        vlSelfRef.__VtrigSched_h6a323483__0.resume(
+                                                   "@( tb_ARB_TL_V1.d_valid)");
     }
     if ((1ULL & vlSelfRef.__VactTriggered.word(0U))) {
         vlSelfRef.__VtrigSched_h7f6617e2__0.resume(
@@ -1711,12 +1984,12 @@ void Vtb_ARB_TL_V1___024root___timing_commit(Vtb_ARB_TL_V1___024root* vlSelf) {
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     if ((! (8ULL & vlSelfRef.__VactTriggered.word(0U)))) {
-        vlSelfRef.__VtrigSched_hc8006972__0.commit(
-                                                   "@( tb_ARB_TL_V1.ack[0])");
-    }
-    if ((! (0x10ULL & vlSelfRef.__VactTriggered.word(0U)))) {
         vlSelfRef.__VtrigSched_hc809928c__0.commit(
                                                    "@( tb_ARB_TL_V1.ack[1])");
+    }
+    if ((! (0x10ULL & vlSelfRef.__VactTriggered.word(0U)))) {
+        vlSelfRef.__VtrigSched_h6a323483__0.commit(
+                                                   "@( tb_ARB_TL_V1.d_valid)");
     }
     if ((! (1ULL & vlSelfRef.__VactTriggered.word(0U)))) {
         vlSelfRef.__VtrigSched_h7f6617e2__0.commit(

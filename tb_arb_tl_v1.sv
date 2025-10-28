@@ -55,6 +55,8 @@ module tb_ARB_TL_V1;
     initial clk = 0;
     always #5 clk = ~clk;  // 100MHz clock
 
+    tl_d_channel fifo_to_arb;
+
     // Instantiate DUT
     ARB_TL_V1 dut (
         .clk(clk),
@@ -65,7 +67,7 @@ module tb_ARB_TL_V1;
         .a_ready(rdy),
         .d_ready(d_ready),
         .d_valid(d_valid),
-        .resp(resp),
+        .resp(fifo_to_arb),
         .c_resp(c_resp)
     );
     reqs_fifo dut2(
@@ -80,8 +82,10 @@ module tb_ARB_TL_V1;
     );
 
     logic [DATA_WIDTH-1:0] rdata;
-    mpu_error_t err;
+    mpu_error_t mpu_err;
     logic mpu_rdy, mpu_bsy;
+    tl_d_channel mpu_out;
+    logic [CORE_ID_WIDTH-1:0] source_core_id;
 
     mpu mpu_inst(
         .clk(clk),
@@ -94,10 +98,34 @@ module tb_ARB_TL_V1;
         .addr(out_req.address),
         .wdata(out_req.data),
         .rdata(rdata),
-        .err(err),
+        .err(mpu_err),
         .rdy(mpu_rdy),
-        .bsy(mpu_bsy)
+        .bsy(mpu_bsy),
+        .source_core_id(source_core_id)
     );
+
+    logic fifo_rdy;
+
+    // packing mpu_output to d_channel
+    assign mpu_out.source = source_core_id;
+    assign mpu_out.data = rdata;
+    assign mpu_out.address = '0;
+    assign mpu_out.opcode = mpu_err;
+    assign mpu_out.valid = '1;
+    assign mpu_out.ready = '1;
+
+
+    response_fifo dut3(
+        .clk(clk),
+        .rst_n(rst_n),
+        .in_req(mpu_out),
+        .enqueue(mpu_rdy && fifo_rdy),  // mpu_rdy is the valid signal
+        .dequeue(d_valid && d_ready),
+        .d_valid(d_valid),
+        .out_req(fifo_to_arb),
+        .fifo_rdy(fifo_rdy)
+    );
+
 
     addr_bits_t addr_cool;
 
@@ -126,50 +154,54 @@ end
     //    a_ready = 1;
     
      // Issue 4 Requests
-           addr_cool.bits.fr = 1; // reserve
-           addr_cool.bits.size = 4; // 4 blocks
-           req[0].valid = 1; req[0].ready = 1;
-           req[0].opcode = 3'b101; req[0].address = addr_cool; req[0].data = 32'hFFFFFFFF;
+        //    addr_cool.bits.fr = 1; // reserve
+        //    addr_cool.bits.size = 4; // 4 blocks
+        //    req[0].valid = 1; req[0].ready = 1;
+        //    req[0].opcode = 3'b101; req[0].address = addr_cool; req[0].data = 32'hFFFFFFFF;
    
            addr_cool.bits.fr = 1; // reserve
            addr_cool.bits.size = 6; // 6 blocks
            req[1].valid = 1; req[1].ready = 1;
            req[1].opcode = 3'b101; req[1].address = addr_cool; req[1].data = 32'hFFFFFFFF;
 
-           wait(ack[0]); req[0].valid = 0;
-           $display("win_req = %0d", win_req);
-
            wait(ack[1]); req[1].valid = 0;
            $display("win_req = %0d", win_req);
 
+        //    wait(ack[1]); req[1].valid = 0;
+        //    $display("win_req = %0d", win_req);
 
-           req[0].valid = 1; req[0].ready = 1;
-           req[0].opcode = 3'b010; req[0].address = 'h0; req[0].data = 32'hFFFF;
 
-           wait(ack[0]); req[0].valid = 0;
+        //    req[0].valid = 1; req[0].ready = 1;
+        //    req[0].opcode = 3'b010; req[0].address = 'h0; req[0].data = 32'hFFFF;
 
-           @(posedge clk);
-           @(posedge clk);
+        //    wait(ack[0]); req[0].valid = 0;
 
-           req[0].valid = 1; req[0].ready = 1;
-           req[0].opcode = 3'b000; req[0].address = 'h0; req[0].data = 32'hFFFF;
-           wait(ack[0]); req[0].valid = 0;
+        //    @(posedge clk);
+        //    @(posedge clk);
 
-           $display("All requests issued");
+        //    req[0].valid = 1; req[0].ready = 1;
+        //    req[0].opcode = 3'b000; req[0].address = 'h0; req[0].data = 32'hFFFF;
+        //    wait(ack[0]); req[0].valid = 0;
+
+        //    $display("All requests issued");
+
+        wait(d_valid && d_ready);
+        $display("resp: source=%d, t=%t, ", fifo_to_arb.source, $time);
+        $display("c_reps[1].source=%d", c_resp[1].source);
 
 
 
         @(posedge clk);
 
-        // Provide D-channel response
-        d_valid = 1;
-        resp.source  = 3;
-        resp.opcode  = 3;
-        resp.address = 32'd3;
-        resp.data    = 32'd33;
-        resp.valid=1;
-        resp.ready=1;
-        #10;
+        // // Provide D-channel response
+        // d_valid = 1;
+        // resp.source  = 3;
+        // resp.opcode  = 3;
+        // resp.address = 32'd3;
+        // resp.data    = 32'd33;
+        // resp.valid=1;
+        // resp.ready=1;
+        // #10;
 
         dut2.print_fifo_contents();
         

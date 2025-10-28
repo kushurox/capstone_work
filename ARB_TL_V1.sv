@@ -17,14 +17,7 @@
 // A CHANNEL
 
 // D CHANNEL
-typedef struct packed {
-    logic [2:0]  opcode;
-    logic [31:0] address;
-    logic [31:0] data;
-    logic [3:0]  source;
-    logic        valid;
-    logic        ready;
-} tl_d_channel;
+
 
 // ======================================================
 // Arbiter Module
@@ -226,6 +219,7 @@ end
             endcase
             
         end
+
     end
 
 endmodule
